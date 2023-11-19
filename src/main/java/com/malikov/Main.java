@@ -10,8 +10,9 @@ public class Main {
     public static void main(String[] args) {
         Bank bank = new Bank();
 
-        BankAccount account1 = bank.createAccount("John Doe", 1000);
+        
         try {
+            BankAccount account1 = bank.createAccount("John Doe", 1000);
             account1.deposit(500);
             account1.withdraw(200);
             System.out.println(account1.getAccountSummary());
@@ -25,14 +26,16 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        BankAccount account3 = bank.createAccount("Jane Doe", 500);
+        
         try {
+            BankAccount account3 = bank.createAccount("Jane Doe", 500);
             account3.withdraw(1000);
         } catch (InsufficientFundsException | NegativeAmountException e) {
             System.out.println(e.getMessage());
         }
 
         try {
+            BankAccount account3 = bank.createAccount("Jane Doe", 500);
             account3.deposit(-200);
         } catch (NegativeAmountException e) {
             System.out.println(e.getMessage());

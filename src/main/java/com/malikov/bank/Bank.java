@@ -15,8 +15,11 @@ public class Bank {
         this.accounts = new ArrayList<>();
     }
 
-    public BankAccount createAccount(String accountName, double initialDeposit) {
+    public BankAccount createAccount(String accountName, double initialDeposit) throws NegativeAmountException {
         int accountNumber = accounts.size() + 1;
+
+        if(initialDeposit < 0) throw new NegativeAmountException("Negative initial deposit value: " + initialDeposit);
+        
         BankAccount newAccount = new BankAccount(accountNumber, accountName, initialDeposit);
         accounts.add(newAccount);
         return newAccount;
